@@ -12,14 +12,13 @@ workflows:
   lint-pack:
     jobs:
       - orb-tools/lint:
-          source_dir: packages/orb
+          source_dir: src
           filters: *filters
       - orb-tools/pack:
-          source_dir: packages/orb
+          source_dir: src
           filters: *filters
       - orb-tools/review:
-          exclude: RC010
-          source_dir: packages/orb
+          source_dir: src
           filters: *filters
       - shellcheck/check:
           filters: *filters
