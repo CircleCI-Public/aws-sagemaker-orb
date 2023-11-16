@@ -1,0 +1,27 @@
+description: >
+  This command creates a sagemaker model with latest model package.
+parameters:
+  model_name:
+    description: Model name
+    type: string
+  region_name:
+    description: AWS region name
+    type: string
+    default: us-east-1
+  bucket:
+    description: S3 bucket for the model
+    type: string
+  pipeline_id:
+    description: CircleCI pipeline ID
+    type: string
+steps:
+  - run:
+      name: Create a model
+      description: create a model for inference
+      environment:
+        MODEL_NAME: << parameters.model_name >>
+        CIRCLE_PIPELINE_ID: << parameters.pipeline_id >>
+        S3_BUCKET_NAME: << parameters.bucket >>
+        REGION_NAME: << parameters.region_name >>
+      command: |
+        cci-sagemaker sagemaker create-model

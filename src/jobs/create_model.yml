@@ -1,0 +1,26 @@
+description: >
+  This job creates sagemaker model given a model package available in registry.
+
+docker:
+  - image: cimg/base:current-22.04
+
+parameters:
+  pipeline_id:
+    description: CircleCI Pipeline ID
+    type: string
+  bucket:
+    description: S3 bucket for the model
+    type: string
+  model_name:
+    description: Model name
+    type: string
+  region_name:
+    description: AWS region name
+    type: string
+steps:
+  - setup
+  - create_model:
+      model_name: << parameters.model_name >>
+      bucket: << parameters.bucket >>
+      pipeline_id: << parameters.pipeline_id >>
+      region_name: << parameters.region_name >>
