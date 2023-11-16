@@ -1,0 +1,6 @@
+description: >
+  This command downloads the sagemaker cli binary.
+steps:
+  - run:
+      name: Download cci-sagemaker binary
+      command: <<include(scripts/main.sh)>>

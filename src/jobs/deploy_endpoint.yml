@@ -1,0 +1,38 @@
+description: >
+  This job deploys inference endpoint by create or update
+
+docker:
+  - image: cimg/base:current-22.04
+
+parameters:
+  deploy_environment:
+    description: deployment environment
+    type: string
+  pipeline_id:
+    description: CircleCI Pipeline ID
+    type: string
+  project_id:
+    description: CircleCI project ID
+    type: string
+  bucket:
+    description: S3 bucket for the model
+    type: string
+  model_name:
+    description: Model name
+    type: string
+  model_desc:
+    description: sagemaker model desription
+    type: string
+  region_name:
+    description: AWS region name
+    type: string
+steps:
+  - setup
+  - deploy_endpoint:
+      model_name: << parameters.model_name >>
+      bucket: << parameters.bucket >>
+      model_desc: << parameters.model_desc >>
+      deploy_environment: << parameters.deploy_environment >>
+      pipeline_id: << parameters.pipeline_id >>
+      project_id: << parameters.project_id >>
+      region_name: << parameters.region_name >>

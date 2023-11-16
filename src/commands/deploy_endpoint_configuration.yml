@@ -1,0 +1,41 @@
+description: >
+  This command creates an create an endpoint configuration.
+parameters:
+  model_name:
+    description: Model name
+    type: string
+  region_name:
+    description: AWS region name
+    type: string
+    default: us-east-1
+  bucket:
+    description: S3 bucket for the model
+    type: string
+  deploy_environment:
+    description: Deploy ENV
+    type: string
+  pipeline_id:
+    description: CircleCI pipeline ID
+    type: string
+  endpoint_instance_type:
+    description: EC2 instance type to run endpoint inference
+    type: string
+    default: "ml.t2.medium"
+  endpoint_instance_count:
+    description: Number of instances to run endpoint inference
+    type: integer
+    default: 1
+steps:
+  - run:
+      name: Create Endpoint Configuration
+      description: create an endpoint configuration
+      environment:
+        MODEL_NAME: << parameters.model_name >>
+        DEPLOY_ENVIRONMENT: << parameters.deploy_environment >>
+        CIRCLE_PIPELINE_ID: << parameters.pipeline_id >>
+        S3_BUCKET_NAME: << parameters.bucket >>
+        REGION_NAME: << parameters.region_name >>
+        ENDPOINT_INSTANCE_TYPE: << parameters.endpoint_instance_type >>
+        ENDPOINT_INSTANCE_COUNT: << parameters.endpoint_instance_count >>
+      command: |
+        cci-sagemaker sagemaker create-endpoint-configuration
