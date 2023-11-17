@@ -36,5 +36,5 @@ workflows:
           requires:
             - orb-tools/pack
             - testing-setup-command
-          context: Circleci-Ai-Orb-Publishing
+          context: orb-publisher
           filters: *release-filters
