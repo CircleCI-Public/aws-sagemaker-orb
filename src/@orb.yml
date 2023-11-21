@@ -2,7 +2,7 @@ version: 2.1
 
 description: >
   Orb for deploying models to AWS sagemaker and tracking releases in CircleCI.
-  (OPEN PREVIEW - send us your feedback at sagemaker-integration-feedback@circleci.com)
+  (OPEN PREVIEW - send feedback at sagemaker-integration-feedback@circleci.com)
 
 display:
   home_url: "https://github.com/CircleCI-Public/aws-sagemaker-orb/wiki"
