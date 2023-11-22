@@ -26,6 +26,14 @@ parameters:
   region_name:
     description: AWS region name
     type: string
+  enable_restore_version:
+    description: Enable restoring releases on circleci
+    type: string
+    default: "true"
+  enable_scaling_component:
+    description: Enable scaling release components on circleci
+    type: string
+    default: "true"
 steps:
   - setup
   - deploy_endpoint:
@@ -36,3 +44,5 @@ steps:
       pipeline_id: << parameters.pipeline_id >>
       project_id: << parameters.project_id >>
       region_name: << parameters.region_name >>
+      enable_restore_version: << parameters.enable_restore_version>>
+      enable_scaling_component: << parameters.enable_scaling_component>>
