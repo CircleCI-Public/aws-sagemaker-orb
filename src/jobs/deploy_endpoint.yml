@@ -27,11 +27,11 @@ parameters:
     description: AWS region name
     type: string
   enable_restore_version:
-    description: Enable restoring releases on circleci. Accepts true, True or TRUE as truthy values
+    description: Enable restoring releases on circleci
     type: string
     default: "true"
   enable_scaling_component:
-    description: Enable scaling release components on circleci. Accepts true, True or TRUE as truthy values
+    description: Enable scaling release components on circleci
     type: string
     default: "true"
 steps:
