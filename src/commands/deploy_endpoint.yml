@@ -22,6 +22,14 @@ parameters:
   region_name:
     description: AWS region name
     type: string
+  enable_restore_version:
+    description: Enable restoring releases on circleci. Accepts true, True or TRUE as truthy values
+    type: string
+    default: "true"
+  enable_scaling_component:
+    description: Enable scaling release components on circleci. Accepts true, True or TRUE as truthy values
+    type: string
+    default: "true"
 steps:
   - run:
       name: Create or Update endpoint
@@ -34,5 +42,7 @@ steps:
         CIRCLE_PROJECT_ID: << parameters.project_id >>
         S3_BUCKET_NAME: << parameters.bucket >>
         REGION_NAME: << parameters.region_name >>
+        RESTORE_VERSION_ENABLED: << parameters.enable_restore_version >>
+        SCALE_COMPONENT_ENABLED: << parameters.enable_scaling_component >>
       command: |
         cci-sagemaker sagemaker upsert-endpoint
