@@ -13,10 +13,10 @@ parameters:
   deploy_environment:
     description: Deploy ENV
     type: string
-  pipeline_id:
+  circle_pipeline_id:
     description: CircleCI pipeline ID
     type: string
-  project_id:
+  circle_project_id:
     description: CircleCI project ID
     type: string
   region_name:
@@ -38,8 +38,8 @@ steps:
         MODEL_NAME: << parameters.model_name >>
         MODEL_DESC: << parameters.model_desc >>
         DEPLOY_ENVIRONMENT: << parameters.deploy_environment >>
-        CIRCLE_PIPELINE_ID: << parameters.pipeline_id >>
-        CIRCLE_PROJECT_ID: << parameters.project_id >>
+        CIRCLE_PIPELINE_ID: << parameters.circle_pipeline_id >>
+        CIRCLE_PROJECT_ID: << parameters.circle_project_id >>
         S3_BUCKET_NAME: << parameters.bucket >>
         REGION_NAME: << parameters.region_name >>
         RESTORE_VERSION_ENABLED: << parameters.enable_restore_version >>
