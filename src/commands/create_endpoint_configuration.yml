@@ -28,12 +28,6 @@ parameters:
   circle_project_id:
     description: CircleCI project ID
     type: string
-  circle_build_num:
-    description: CircleCI job number
-    type: string
-  circle_workflow_id:
-    description: CircleCI workflow ID
-    type: string
 steps:
   - run:
       name: Create Endpoint Configuration
@@ -47,7 +41,5 @@ steps:
         ENDPOINT_INSTANCE_TYPE: << parameters.endpoint_instance_type >>
         ENDPOINT_INSTANCE_COUNT: << parameters.endpoint_instance_count >>
         CIRCLE_PROJECT_ID: << parameters.circle_project_id >>
-        CIRCLE_BUILD_NUM: << parameters.circle_build_num >>
-        CIRCLE_WORKFLOW_ID: << parameters.circle_workflow_id >>
       command: |
         cci-sagemaker sagemaker create-endpoint-configuration
