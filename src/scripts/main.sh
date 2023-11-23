@@ -114,7 +114,7 @@ repo_name="cci-sagemaker"
 # binary="${orb_bin_dir}/${repo_name}"
 # TODO: Make the version configurable via parameter
 # Don't forget the v!
-binary_version="v0.0.8"
+binary_version="v0.0.9"
 basic_name="cci-sagemaker"
 binary_name="${basic_name}-${binary_version}-${PLATFORM}-${ARCH}"
 binary_zip="${orb_bin_dir}/${binary_name}.zip"
