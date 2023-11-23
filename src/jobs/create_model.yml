@@ -5,7 +5,7 @@ docker:
   - image: cimg/base:current-22.04
 
 parameters:
-  pipeline_id:
+  circle_pipeline_id:
     description: CircleCI Pipeline ID
     type: string
   bucket:
@@ -22,5 +22,5 @@ steps:
   - create_model:
       model_name: << parameters.model_name >>
       bucket: << parameters.bucket >>
-      pipeline_id: << parameters.pipeline_id >>
+      circle_pipeline_id: << parameters.circle_pipeline_id >>
       region_name: << parameters.region_name >>
