@@ -11,7 +11,7 @@ parameters:
   bucket:
     description: S3 bucket for the model
     type: string
-  pipeline_id:
+  circle_pipeline_id:
     description: CircleCI pipeline ID
     type: string
 steps:
@@ -20,7 +20,7 @@ steps:
       description: create a model for inference
       environment:
         MODEL_NAME: << parameters.model_name >>
-        CIRCLE_PIPELINE_ID: << parameters.pipeline_id >>
+        CIRCLE_PIPELINE_ID: << parameters.circle_pipeline_id >>
         S3_BUCKET_NAME: << parameters.bucket >>
         REGION_NAME: << parameters.region_name >>
       command: |
