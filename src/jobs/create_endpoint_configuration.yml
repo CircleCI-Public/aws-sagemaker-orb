@@ -8,7 +8,7 @@ parameters:
   deploy_environment:
     description: deployment environment
     type: string
-  pipeline_id:
+  circle_pipeline_id:
     description: CircleCI Pipeline ID
     type: string
   bucket:
@@ -28,13 +28,25 @@ parameters:
     description: Number of instances to run endpoint inference
     type: integer
     default: 1
+  circle_project_id:
+    description: CircleCI project ID
+    type: string
+  circle_build_num:
+    description: CircleCI job number
+    type: string
+  circle_workflow_id:
+    description: CircleCI workflow ID
+    type: string
 steps:
   - setup
   - create_endpoint_configuration:
       model_name: << parameters.model_name >>
       bucket: << parameters.bucket >>
       deploy_environment: << parameters.deploy_environment >>
-      pipeline_id: << parameters.pipeline_id >>
+      circle_pipeline_id: << parameters.circle_pipeline_id >>
       region_name: << parameters.region_name >>
       endpoint_instance_type: << parameters.endpoint_instance_type >>
       endpoint_instance_count: << parameters.endpoint_instance_count >>
+      circle_project_id: << parameters.circle_project_id >>
+      circle_build_num: << parameters.circle_build_num >>
+      circle_workflow_id: << parameters.circle_workflow_id >>

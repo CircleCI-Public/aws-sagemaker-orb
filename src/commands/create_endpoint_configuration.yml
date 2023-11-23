@@ -14,7 +14,7 @@ parameters:
   deploy_environment:
     description: Deploy ENV
     type: string
-  pipeline_id:
+  circle_pipeline_id:
     description: CircleCI pipeline ID
     type: string
   endpoint_instance_type:
@@ -25,6 +25,15 @@ parameters:
     description: Number of instances to run endpoint inference
     type: integer
     default: 1
+  circle_project_id:
+    description: CircleCI project ID
+    type: string
+  circle_build_num:
+    description: CircleCI job number
+    type: string
+  circle_workflow_id:
+    description: CircleCI workflow ID
+    type: string
 steps:
   - run:
       name: Create Endpoint Configuration
@@ -32,10 +41,13 @@ steps:
       environment:
         MODEL_NAME: << parameters.model_name >>
         DEPLOY_ENVIRONMENT: << parameters.deploy_environment >>
-        CIRCLE_PIPELINE_ID: << parameters.pipeline_id >>
+        CIRCLE_PIPELINE_ID: << parameters.circle_pipeline_id >>
         S3_BUCKET_NAME: << parameters.bucket >>
         REGION_NAME: << parameters.region_name >>
         ENDPOINT_INSTANCE_TYPE: << parameters.endpoint_instance_type >>
         ENDPOINT_INSTANCE_COUNT: << parameters.endpoint_instance_count >>
+        CIRCLE_PROJECT_ID: << parameters.circle_project_id >> 
+        CIRCLE_BUILD_NUM: << parameters.circle_build_num >>
+        CIRCLE_WORKFLOW_ID: << parameters.circle_workflow_id >>
       command: |
         cci-sagemaker sagemaker create-endpoint-configuration
