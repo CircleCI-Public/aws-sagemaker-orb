@@ -30,7 +30,7 @@ parameters:
     default: 1
 steps:
   - setup
-  - deploy_endpoint_configuration:
+  - create_endpoint_configuration:
       model_name: << parameters.model_name >>
       bucket: << parameters.bucket >>
       deploy_environment: << parameters.deploy_environment >>

@@ -14,7 +14,7 @@ usage:
             pipeline_id: << pipeline.id >>
             bucket: s3_bucket_name
             region_name: < us-east-1 >
-        - aws-sagemaker/deploy_endpoint_configuration:
+        - aws-sagemaker/create_endpoint_configuration:
             name: create-endpoint-configuration
             model_name: model-name
             deploy_environment: < environment >
