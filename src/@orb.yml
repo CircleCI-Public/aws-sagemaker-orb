@@ -1,7 +1,7 @@
 version: 2.1
 
 description: >
-  Orb for deploying models to AWS sagemaker and tracking releases in CircleCI.
+  Orb for deploying models to Amazon SageMaker and tracking releases in CircleCI.
   (OPEN PREVIEW - send feedback at sagemaker-integration-feedback@circleci.com)
 
 display:
