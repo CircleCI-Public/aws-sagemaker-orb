@@ -1,7 +1,5 @@
 # aws-sagemaker-orb
 
-🚧 NOTE: This repo is under construction and not for use yet 🚧
-
 # AWS Sagemaker Orb [![CircleCI Build Status](https://circleci.com/gh/CircleCI-Public/aws-sagemaker-orb.svg?style=shield "CircleCI Build Status")](https://circleci.com/gh/CircleCI-Public/aws-sagemaker-orb) [![CircleCI Orb Version](https://badges.circleci.com/orbs/circleci/aws-sagemaker.svg)](https://circleci.com/orbs/registry/orb/circleci/aws-sagemaker) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/circleci-public/aws-sagemaker-orb/main/LICENSE) [![CircleCI Community](https://img.shields.io/badge/community-CircleCI%20Discuss-343434.svg)](https://discuss.circleci.com/c/ecosystem/orbs)
 
 This repository has the code for the the CircleCI [AWS Sagemaker Orb](https://github.com/CircleCI-Public/aws-sagemaker-orb). Please note that this version is currently in beta. Explore, understand, and experiment, but proceed with caution when integrating it into practical applications. 🛠✨
