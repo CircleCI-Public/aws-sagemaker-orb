@@ -1,5 +1,5 @@
 description: >
-  TBD
+  Deploys a model to SageMaker with an existing endpoint configuration.
 usage:
   version: 2.1
   orbs:
