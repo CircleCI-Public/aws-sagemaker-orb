@@ -1,0 +1,36 @@
+description: >
+  create or update a samgemaker endpoint.
+usage:
+  version: 2.1
+  orbs:
+    aws-sagemaker: circleci/aws-sagemaker@1.0
+  workflows:
+    ai-workflow:
+      jobs:
+        - aws-sagemaker/create_model:
+            name: create-model
+            model_name: replace_with_model_name
+            deploy_environment: replace_with_environment
+            pipeline_id: << pipeline.id >>
+            bucket: replace_with_s3_bucket_name
+            region_name: replace_with_region_name
+        - aws-sagemaker/create_endpoint_configuration:
+            name: create-endpoint-configuration
+            model_name: replace_with_model_name
+            deploy_environment: replace_with_environment
+            pipeline_id: << pipeline.id >>
+            bucket: replace_with_s3_bucket_name
+            region_name: replace_with_region_name
+            requires:
+              - create-model
+        - aws-sagemaker/deploy_endpoint:
+            name: deploy-endpoint
+            model_name: replace_with_model_name
+            model_desc: replace_with_description
+            deploy_environment: replace_with_environment
+            pipeline_id: <<pipeline.id>>
+            project_id: replace_with_project_id
+            bucket: replace_with_s3_bucket_name
+            region_name: replace_with_region_name
+            requires:
+              - create-endpoint-configuration
