@@ -3,7 +3,7 @@ description: >
     - Create a SageMaker model
     - Create an endpoint configuration for the model
     - Deploy the model to an endpoint
-  It shows a typical machine learning workflow using SageMaker on CircleCI.
+  It shows a typical machine learning workflow using SageMaker with model releases being tracked on CircleCI.
 usage:
   version: 2.1
   orbs:
