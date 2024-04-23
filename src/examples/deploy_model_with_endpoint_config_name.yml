@@ -1,0 +1,20 @@
+description: >
+  Deploys a model to SageMaker with an existing endpoint configuration.
+usage:
+  version: 2.1
+  orbs:
+    aws-sagemaker: circleci/aws-sagemaker@1.0
+  workflows:
+    ai-workflow:
+      jobs:
+        - aws-sagemaker/deploy_endpoint:
+            name: deploy-endpoint
+            model_name: replace_with_model_name
+            model_desc: replace_with_description
+            deploy_environment: replace_with_environment
+            pipeline_id: <<pipeline.id>>
+            project_id: replace_with_project_id
+            bucket: replace_with_s3_bucket_name
+            region_name: replace_with_region_name
+            endpoint_config_name: replace_with_existing_endpoint_config_name
+            endpoint_name: replace_with_endpoint_name

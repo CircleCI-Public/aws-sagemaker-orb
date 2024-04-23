@@ -5,5 +5,5 @@ description: >
   (OPEN PREVIEW - send feedback at sagemaker-integration-feedback@circleci.com)
 
 display:
-  home_url: "https://github.com/CircleCI-Public/aws-sagemaker-orb/wiki"
+  home_url: "https://github.com/CircleCI-Public/aws-sagemaker-orb"
   source_url: "https://github.com/CircleCI-Public/aws-sagemaker-orb"
