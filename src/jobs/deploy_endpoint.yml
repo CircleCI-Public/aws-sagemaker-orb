@@ -34,6 +34,14 @@ parameters:
     description: Enable scaling release components on circleci
     type: string
     default: "true"
+  endpoint_config_name:
+    description: Existing endpoint config name
+    type: string
+    default: ""
+  endpoint_name:
+    description: Existing endpoint name
+    type: string
+    default: ""
 steps:
   - setup
   - deploy_endpoint:
@@ -46,3 +54,5 @@ steps:
       region_name: << parameters.region_name >>
       enable_restore_version: << parameters.enable_restore_version>>
       enable_scaling_component: << parameters.enable_scaling_component>>
+      endpoint_config_name: << parameters.endpoint_config_name >>
+      endpoint_name: << parameters.endpoint_name >>
