@@ -30,6 +30,14 @@ parameters:
     description: Enable scaling release components on circleci
     type: string
     default: "true"
+  endpoint_config_name:
+    description: Existing endpoint config name
+    type: string
+    default: ""
+  endpoint_name:
+    description: Existing endpoint name
+    type: string
+    default: ""
 steps:
   - run:
       name: Create or Update endpoint
@@ -44,5 +52,7 @@ steps:
         REGION_NAME: << parameters.region_name >>
         RESTORE_VERSION_ENABLED: << parameters.enable_restore_version >>
         SCALE_COMPONENT_ENABLED: << parameters.enable_scaling_component >>
+        ENDPOINT_CONFIGURATION_NAME: << parameters.endpoint_config_name >>
+        ENDPOINT_NAME: << parameters.endpoint_name >>
       command: |
         cci-sagemaker sagemaker upsert-endpoint
