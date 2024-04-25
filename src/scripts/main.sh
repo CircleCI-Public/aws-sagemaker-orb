@@ -180,6 +180,7 @@ if ! chmod +x "${orb_bin_dir}/${binary_name}"; then
 fi
 
 printf '%s\n' "Moving $binary_name to PATH and renaming to ${basic_name}..."
+mkdir -p "$path_destination"
 if ! mv "$orb_bin_dir/$binary_name" "${path_destination}/${basic_name}"; then
     print_error "Failed to move $orb_bin_dir/$binary_name binary executable."
     exit 1
