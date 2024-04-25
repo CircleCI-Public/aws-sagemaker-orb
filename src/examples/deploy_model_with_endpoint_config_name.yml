@@ -11,7 +11,6 @@ usage:
             name: deploy-endpoint
             model_name: replace_with_model_name
             model_desc: replace_with_description
-            deploy_environment: replace_with_environment
             pipeline_id: <<pipeline.id>>
             project_id: replace_with_project_id
             bucket: replace_with_s3_bucket_name

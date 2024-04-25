@@ -11,9 +11,6 @@ parameters:
   bucket:
     description: S3 bucket for the model
     type: string
-  deploy_environment:
-    description: Deploy ENV
-    type: string
   circle_pipeline_id:
     description: CircleCI pipeline ID
     type: string
@@ -34,7 +31,6 @@ steps:
       description: create an endpoint configuration
       environment:
         MODEL_NAME: << parameters.model_name >>
-        DEPLOY_ENVIRONMENT: << parameters.deploy_environment >>
         CIRCLE_PIPELINE_ID: << parameters.circle_pipeline_id >>
         S3_BUCKET_NAME: << parameters.bucket >>
         REGION_NAME: << parameters.region_name >>
