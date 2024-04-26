@@ -119,7 +119,7 @@ basic_name="cci-sagemaker"
 binary_name="${basic_name}-${binary_version}-${PLATFORM}-${ARCH}"
 binary_zip="${orb_bin_dir}/${binary_name}.zip"
 # Where to move the binary
-path_destination="/home/circleci/bin"
+path_destination="$HOME/bin"
 # Slack orb seems to put this outside the script as a parameter
 # https://github.com/CircleCI-Public/slack-orb-go/blob/8c4e86c9a787c240138244610aada066059b5b46/src/commands/notify.yml#L80
 # TODO: keep support for this? Or will people not bother? They would have to do to the packagecloud URL and find it
@@ -181,6 +181,12 @@ fi
 
 printf '%s\n' "Moving $binary_name to PATH and renaming to ${basic_name}..."
 mkdir -p "$path_destination"
+# shellcheck disable=SC2016
+# shellcheck disable=SC2086
+echo 'export PATH='${path_destination}':$PATH' >> "$BASH_ENV"
+# shellcheck disable=SC1090
+# shellcheck disable=SC3046
+source "$BASH_ENV"
 if ! mv "$orb_bin_dir/$binary_name" "${path_destination}/${basic_name}"; then
     print_error "Failed to move $orb_bin_dir/$binary_name binary executable."
     exit 1
