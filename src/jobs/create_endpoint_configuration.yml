@@ -5,9 +5,6 @@ docker:
   - image: cimg/base:current-22.04
 
 parameters:
-  deploy_environment:
-    description: deployment environment
-    type: string
   circle_pipeline_id:
     description: CircleCI Pipeline ID
     type: string
@@ -36,7 +33,6 @@ steps:
   - create_endpoint_configuration:
       model_name: << parameters.model_name >>
       bucket: << parameters.bucket >>
-      deploy_environment: << parameters.deploy_environment >>
       circle_pipeline_id: << parameters.circle_pipeline_id >>
       region_name: << parameters.region_name >>
       endpoint_instance_type: << parameters.endpoint_instance_type >>
